@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -31,7 +31,6 @@ export function UserAuthForm({
     resolver: zodResolver(userAuthSchema),
   })
   const searchParameters = useSearchParams()
-  const router = useRouter()
 
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
 
@@ -60,12 +59,10 @@ export function UserAuthForm({
       }
 
       if (result.url) {
-        const url = new URL(result.url)
-        console.debug('[UserAuthForm] onSubmit::pathname', url.pathname)
-        router.replace(url.pathname)
+        window.location.replace(result.url)
       }
     },
-    [router, searchParameters]
+    [searchParameters]
   )
 
   return (

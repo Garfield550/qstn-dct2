@@ -5,6 +5,7 @@ const user: User = {
   id: '33b1b195-f33b-46a9-b5d8-1a91f13af220',
   name: 'John Doe',
   email: 'johndoe@example.com',
+  image: 'https://i.pravatar.cc/150',
 }
 
 export const authOptions: NextAuthOptions = {
@@ -41,6 +42,7 @@ export const authOptions: NextAuthOptions = {
           user: {
             name: token.name,
             email: token.email,
+            image: token.picture,
           },
         }
       }
