@@ -1,6 +1,8 @@
+import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev'
 import Link from 'next/link'
 
 import { buttonVariants } from '@/components/ui/button'
+import { isDevelopment } from '@/env'
 
 export default function IndexPage() {
   return (
@@ -35,4 +37,10 @@ export default function IndexPage() {
       </div>
     </section>
   )
+}
+
+if (isDevelopment) {
+  // Adds messages only in a dev environment
+  loadDevMessages()
+  loadErrorMessages()
 }

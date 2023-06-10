@@ -8,12 +8,8 @@ import { getCurrentUser } from '@/lib/session'
 
 import { CardSkeleton } from './components/card-skeleton'
 import { EthereumWalletProvider } from './components/connect-kit-provider'
+import { EthereumCard } from './components/ethereum-card'
 import { NearWalletSelectorProvider } from './components/near-wallet-provider'
-
-const EthereumCard = dynamic(() => import('./components/ethereum-card'), {
-  loading: () => <CardSkeleton />,
-  ssr: false,
-})
 
 const NearCard = dynamic(() => import('./components/near-card'), {
   loading: () => <CardSkeleton />,

@@ -5,7 +5,7 @@ import { useAccount, useDisconnect } from 'wagmi'
 
 import { Button } from '@/components/ui/button'
 
-import { useTruncatedEthAddress } from '../hooks/use-truncated-eth-address'
+import { useTruncatedEthAddress } from '../../hooks/use-truncated-eth-address'
 
 export function EthereumDisconnectButton() {
   const { address, isConnected } = useAccount()
