@@ -15,6 +15,7 @@ import React from 'react'
 import { distinctUntilChanged, map } from 'rxjs'
 
 import { isDevelopment } from '@/env'
+import { getNetworkType } from '@/lib/chain'
 
 interface NearWalletSelectorContextValue {
   selector: WalletSelector
@@ -39,10 +40,11 @@ export function NearWalletSelectorProvider({
   const [selector, setSelector] = React.useState<WalletSelector>()
   const [modal, setModal] = React.useState<WalletSelectorModal>()
   const [accounts, setAccounts] = React.useState<AccountState[]>([])
+  const network = React.useMemo(() => getNetworkType(), [])
 
   const initialize = React.useCallback(async () => {
     const _selector = await setupWalletSelector({
-      network: 'testnet',
+      network,
       debug: isDevelopment,
       modules: [setupMyNearWallet(), setupNearWallet()],
     })
@@ -54,7 +56,7 @@ export function NearWalletSelectorProvider({
 
     setSelector(_selector)
     setModal(_modal)
-  }, [contractId])
+  }, [contractId, network])
 
   React.useEffect(() => {
     initialize().catch((error) => {

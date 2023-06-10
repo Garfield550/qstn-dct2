@@ -18,6 +18,8 @@ export const serverSchema = z.object({
 export const clientSchema = z.object({
   NEXT_PUBLIC_INFURA_API_KEY: z.string().nonempty(),
   NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: z.string().nonempty(),
+  NEXT_PUBLIC_CHAIN_NETWORK: z.enum(['mainnet', 'testnet']).default('testnet'),
+  NEXT_PUBLIC_NFT_CONTRACT_ADDRESS: z.string().nonempty(),
   NEXT_PUBLIC_AURORA_EXPLORER_GQL_URL: z.string().url(),
   NEXT_PUBLIC_NEAR_CONTRACT_ID: z.string().nonempty(),
 })

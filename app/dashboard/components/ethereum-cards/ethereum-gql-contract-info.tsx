@@ -5,9 +5,12 @@ import { AlertCircle } from 'lucide-react'
 import React from 'react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { getNftContractAddress } from '@/lib/chain'
 
 import { InfoLine } from '../info-line'
 import { SourceBlock } from '../source-block'
+
+const address = getNftContractAddress()
 
 const contractInfoQuery = gql`
   query GetContractInfo($address: AddressHash!) {
@@ -39,9 +42,7 @@ export function EthereumGQLContractInfo() {
   const { data, error } = useSuspenseQuery<ContractInfoQueryResult>(
     contractInfoQuery,
     {
-      variables: {
-        address: '0x1875fcC416a92e04Ee23d2077203B02f3a51D0C0',
-      },
+      variables: { address },
     }
   )
 

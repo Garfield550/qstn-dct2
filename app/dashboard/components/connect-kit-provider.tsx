@@ -1,23 +1,29 @@
 'use client'
 
-import { auroraTestnet } from '@wagmi/chains'
+import { aurora, auroraTestnet } from '@wagmi/chains'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 import { useTheme } from 'next-themes'
 import React from 'react'
 import { createConfig, WagmiConfig } from 'wagmi'
 
 import { isDevelopment } from '@/env'
-import { getInfuraApiKey, getWalletConnectProjectId } from '@/lib/chain'
+import {
+  getInfuraApiKey,
+  getNetworkType,
+  getWalletConnectProjectId,
+} from '@/lib/chain'
 
 const infuraId = getInfuraApiKey()
 const walletConnectProjectId = getWalletConnectProjectId()
 
-const initialChainId = auroraTestnet.id
+const network = getNetworkType()
+const chain = network === 'mainnet' ? aurora : auroraTestnet
+const initialChainId = chain.id
 
 const config = createConfig(
   getDefaultConfig({
     appName: 'QSTN DCT2',
-    chains: [auroraTestnet],
+    chains: [chain],
     walletConnectProjectId,
     infuraId,
   })

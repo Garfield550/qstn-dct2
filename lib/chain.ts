@@ -1,4 +1,4 @@
-import { environment } from '@/env/client'
+import { environment, type NetworkType } from '@/env/client'
 
 export function getInfuraApiKey(): string {
   const apiKey = environment.NEXT_PUBLIC_INFURA_API_KEY
@@ -7,6 +7,14 @@ export function getInfuraApiKey(): string {
 
 export function getWalletConnectProjectId(): string {
   return environment.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID
+}
+
+export function getNetworkType(): NetworkType {
+  return environment.NEXT_PUBLIC_CHAIN_NETWORK
+}
+
+export function getNftContractAddress(): string {
+  return environment.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS
 }
 
 export function getNearContractId(): string {

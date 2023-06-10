@@ -18,7 +18,7 @@ export function EthereumWalletAddressInfo() {
     <React.Fragment>
       {address ? (
         <React.Fragment>
-          <div className="flex flex-col">
+          <div className="flex min-w-0 flex-1 flex-col">
             <InfoLine title="Address:">{address}</InfoLine>
             <InfoLine title="Balance:">{balanceString} ETH</InfoLine>
           </div>

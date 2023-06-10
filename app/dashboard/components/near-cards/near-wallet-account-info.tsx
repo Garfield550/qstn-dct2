@@ -23,7 +23,7 @@ export function NearWalletAccountInfo() {
     <React.Fragment>
       {accountId ? (
         <React.Fragment>
-          <div className="flex flex-col">
+          <div className="flex min-w-0 flex-1 flex-col">
             <InfoLine title="Account:">{accountId}</InfoLine>
             <InfoLine title="Balance:">{balanceString} NEAR</InfoLine>
           </div>
