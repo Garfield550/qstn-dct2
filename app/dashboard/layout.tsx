@@ -1,8 +1,8 @@
+import '@near-wallet-selector/modal-ui/styles.css'
+
 import { notFound } from 'next/navigation'
 
 import { getCurrentUser } from '@/lib/session'
-
-import { WalletProvider } from './components/connect-kit-provider'
 
 interface DashboardLayoutProperties {
   children?: React.ReactNode
@@ -18,10 +18,12 @@ export default async function DashboardLayout({
   }
 
   return (
-    <WalletProvider>
-      <div className="flex min-h-screen flex-col space-y-6">
-        <div className="container flex-1">{children}</div>
+    <div className="flex min-h-screen flex-col space-y-6">
+      <div className="container flex-1">
+        <div className="my-6 flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
+          {children}
+        </div>
       </div>
-    </WalletProvider>
+    </div>
   )
 }

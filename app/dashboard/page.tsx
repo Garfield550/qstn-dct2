@@ -2,16 +2,25 @@ import dynamic from 'next/dynamic'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { authOptions } from '@/lib/auth'
+import { getNearContractId } from '@/lib/chain'
 import { getCurrentUser } from '@/lib/session'
 
 import { CardSkeleton } from './components/card-skeleton'
+import { EthereumWalletProvider } from './components/connect-kit-provider'
+import { NearWalletSelectorProvider } from './components/near-wallet-provider'
 
 const EthereumCard = dynamic(() => import('./components/ethereum-card'), {
   loading: () => <CardSkeleton />,
   ssr: false,
 })
+
+const NearCard = dynamic(() => import('./components/near-card'), {
+  loading: () => <CardSkeleton />,
+  ssr: false,
+})
+
+const contractId = getNearContractId()
 
 export const metadata = {
   title: 'Dashboard',
@@ -25,14 +34,13 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="my-6 flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12">
-      <EthereumCard />
-      <Card>
-        <CardHeader>
-          <CardTitle>Near Wallet</CardTitle>
-          <CardContent></CardContent>
-        </CardHeader>
-      </Card>
-    </div>
+    <React.Fragment>
+      <EthereumWalletProvider>
+        <EthereumCard />
+      </EthereumWalletProvider>
+      <NearWalletSelectorProvider contractId={contractId}>
+        <NearCard />
+      </NearWalletSelectorProvider>
+    </React.Fragment>
   )
 }

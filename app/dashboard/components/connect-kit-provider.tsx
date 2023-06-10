@@ -25,7 +25,7 @@ const config = createConfig(
 
 type WalletProvider = { children: React.ReactNode }
 
-export function WalletProvider({ children }: WalletProvider) {
+export function EthereumWalletProvider({ children }: WalletProvider) {
   const { theme } = useTheme()
   const mode = React.useMemo(
     () => (theme === 'dark' ? 'dark' : 'light'),
