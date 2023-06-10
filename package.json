@@ -23,8 +23,10 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.4",
+    "@wagmi/chains": "^1.1.0",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
+    "connectkit": "^1.4.0",
     "lucide-react": "^0.241.0",
     "next": "13.4.3",
     "next-auth": "^4.22.1",
@@ -33,6 +35,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "tailwind-merge": "^1.13.1",
+    "viem": "^1.0.2",
+    "wagmi": "^1.1.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {

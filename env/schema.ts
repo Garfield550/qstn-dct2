@@ -15,7 +15,10 @@ export const serverSchema = z.object({
  * This way you can ensure the app isn't built with invalid env vars.
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
-export const clientSchema = z.object({})
+export const clientSchema = z.object({
+  NEXT_PUBLIC_INFURA_API_KEY: z.string().nonempty(),
+  NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: z.string().nonempty(),
+})
 
 export const formatErrors = (
   errors: ZodFormattedError<Map<string, string>, string>

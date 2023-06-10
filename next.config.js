@@ -8,8 +8,20 @@ function defineNextConfig(config) {
 }
 
 export default defineNextConfig({
+  reactStrictMode: true,
   experimental: {
     appDir: true,
   },
   output: 'standalone',
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Fix @walletconnect/legacy-client build error
+      config.resolve.fallback = {
+        fs: false,
+        net: false,
+        tls: false,
+      }
+    }
+    return config
+  },
 })

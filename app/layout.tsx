@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { type Metadata } from 'next'
 import React from 'react'
 
+import { SiteHeader } from '@/components/site-header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
@@ -43,7 +44,10 @@ export default function RootLayout({ children }: RootLayoutProperties) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <main className="flex-1">{children}</main>
+            </div>
             <TailwindIndicator />
             <Toaster />
           </ThemeProvider>

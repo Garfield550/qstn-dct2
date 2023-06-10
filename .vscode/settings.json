@@ -20,11 +20,14 @@
     "callees",
     "clsx",
     "commitlint",
+    "connectkit",
     "hookform",
     "lucide",
     "NEXTAUTH",
     "pnpm",
     "qstn",
-    "tailwindcss"
+    "tailwindcss",
+    "wagmi",
+    "WALLETCONNECT"
   ]
 }

@@ -11,7 +11,11 @@ const _clientEnvironment: {
   [k in keyof z.infer<typeof clientSchema>]:
     | z.infer<typeof clientSchema>[k]
     | undefined
-} = {}
+} = {
+  NEXT_PUBLIC_INFURA_API_KEY: process.env.NEXT_PUBLIC_INFURA_API_KEY,
+  NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID:
+    process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
+}
 
 const clientEnvironment = clientSchema.safeParse(_clientEnvironment)
 
