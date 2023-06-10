@@ -10,16 +10,24 @@ export function EthereumGQLContractInfoSkeleton() {
         Contract Info
       </h4>
       <InfoLine title="Name:">
-        <Skeleton className="h-4 w-1/5" />
+        <Skeleton asChild className="h-4 w-1/5">
+          <span />
+        </Skeleton>
       </InfoLine>
       <InfoLine title="Address:">
-        <Skeleton className="h-4 w-2/3" />
+        <Skeleton asChild className="h-4 w-2/3">
+          <span />
+        </Skeleton>
       </InfoLine>
       <InfoLine title="Compiler Version:">
-        <Skeleton className="h-4 w-2/5" />
+        <Skeleton asChild className="h-4 w-2/5">
+          <span />
+        </Skeleton>
       </InfoLine>
       <InfoLine title="Optimization:">
-        <Skeleton className="h-4 w-1/5" />
+        <Skeleton asChild className="h-4 w-1/5">
+          <span />
+        </Skeleton>
       </InfoLine>
       <SourceBlock title="Contract Source Code:">
         <Skeleton className="h-52 rounded-md bg-muted" />

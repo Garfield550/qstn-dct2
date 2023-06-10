@@ -33,9 +33,11 @@ export function useWalletSelector() {
 
 export function useProvider() {
   const { selector } = useWalletSelector()
-  if (!selector) return
-  const { network } = selector.options
-  const provider = new providers.JsonRpcProvider({ url: network.nodeUrl })
+  const provider = React.useMemo(() => {
+    if (!selector) return
+    const { network } = selector.options
+    return new providers.JsonRpcProvider({ url: network.nodeUrl })
+  }, [selector])
   return provider
 }
 
@@ -47,14 +49,14 @@ type UseAccountOptions = {
   accountId?: string
 }
 
-export function useAccount({ accountId: wantAccountId }: UseAccountOptions) {
+export function useAccount(options?: UseAccountOptions) {
   const { accountId: connectedAccountId, selector } = useWalletSelector()
   const provider_ = useProvider()
 
   const [account, setAccount] = React.useState<Account>()
 
   const getAccount = React.useCallback(async () => {
-    const accountId = wantAccountId ?? connectedAccountId
+    const accountId = options?.accountId ?? connectedAccountId
     if (!accountId || !provider_ || !selector) return
 
     try {
@@ -70,7 +72,7 @@ export function useAccount({ accountId: wantAccountId }: UseAccountOptions) {
         await wallet.signOut()
 
         const error = new Error(
-          `Account ID: ${wantAccountId} has not been founded. Please send some NEAR into this account.`
+          `Account ID: ${accountId} has not been founded. Please send some NEAR into this account.`
         )
         console.error('[useAccount] getAccount', error)
         return
@@ -81,7 +83,7 @@ export function useAccount({ accountId: wantAccountId }: UseAccountOptions) {
     } catch (error) {
       console.error('[useAccount] getAccount', error)
     }
-  }, [wantAccountId, connectedAccountId, provider_, selector])
+  }, [options?.accountId, connectedAccountId, provider_, selector])
 
   React.useEffect(() => {
     getAccount()

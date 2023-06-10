@@ -1,16 +1,7 @@
-import dynamic from 'next/dynamic'
 import React from 'react'
 
-import { CardSkeleton } from './card-skeleton'
 import { EthereumGQLIntegrationCard } from './ethereum-cards/ethereum-gql-integration-card'
-
-const EthereumWalletIntegrationCard = dynamic(
-  () => import('./ethereum-cards/ethereum-wallet-integration-card'),
-  {
-    loading: () => <CardSkeleton />,
-    ssr: false,
-  }
-)
+import { EthereumWalletIntegrationCard } from './ethereum-cards/ethereum-wallet-integration-card'
 
 export function EthereumCard() {
   return (
@@ -20,5 +11,3 @@ export function EthereumCard() {
     </div>
   )
 }
-
-export default EthereumCard

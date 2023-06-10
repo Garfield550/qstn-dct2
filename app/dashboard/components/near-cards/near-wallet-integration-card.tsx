@@ -1,24 +1,23 @@
 import dynamic from 'next/dynamic'
-import React from 'react'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-const EthereumWalletAddressInfo = dynamic(
-  () => import('./ethereum-wallet-address-info'),
+const NearWalletAccountInfo = dynamic(
+  () => import('./near-wallet-account-info'),
   {
     loading: () => <div>Loading...</div>,
     ssr: false,
   }
 )
 
-export function EthereumWalletIntegrationCard() {
+export function NearWalletIntegrationCard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Aurora Wallet</CardTitle>
+        <CardTitle>Near Wallet</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-4">
-        <EthereumWalletAddressInfo />
+        <NearWalletAccountInfo />
       </CardContent>
     </Card>
   )
