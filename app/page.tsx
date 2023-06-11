@@ -2,6 +2,7 @@ import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev'
 import Link from 'next/link'
 
 import { buttonVariants } from '@/components/ui/button'
+import { siteConfig } from '@/config/site'
 import { isDevelopment } from '@/env'
 
 export default function IndexPage() {
@@ -19,7 +20,7 @@ export default function IndexPage() {
       </div>
       <div className="flex gap-4">
         <Link
-          href={'siteConfig.links.docs'}
+          href={siteConfig.links.docs}
           target="_blank"
           rel="noreferrer"
           className={buttonVariants()}
@@ -29,7 +30,7 @@ export default function IndexPage() {
         <Link
           target="_blank"
           rel="noreferrer"
-          href={'siteConfig.links.github'}
+          href={siteConfig.links.github}
           className={buttonVariants({ variant: 'outline' })}
         >
           GitHub

@@ -9,4 +9,8 @@ export const siteConfig = {
       href: '/dashboard',
     },
   ],
+  links: {
+    docs: 'https://github.com/Garfield550/qstn-dct2/blob/main/README.md',
+    github: 'https://github.com/Garfield550/qstn-dct2',
+  },
 }
