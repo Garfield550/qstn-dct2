@@ -40,5 +40,5 @@ export const OneNear = BigInt(oneNear)
 export function parseNear(value: bigint): string {
   const fraction = value % OneNear
   const integer = (value - fraction) / OneNear
-  return `${integer}.${fraction.toString()}`
+  return `${integer}.${fraction.toString().padStart(24, '0')}`
 }

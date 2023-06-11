@@ -29,18 +29,23 @@ describe('Test truncateEthAddress function', () => {
 })
 
 describe('Test parseNear function', () => {
-  test('parse zero near should be 0.0', () => {
+  test('parse zero near should be 0.000000000000000000000000', () => {
     const zeroNear = BigInt(0)
-    expect(parseNear(zeroNear)).toBe('0.0')
+    expect(parseNear(zeroNear)).toBe('0.000000000000000000000000')
   })
 
-  test('parse one near should be 1.0', () => {
+  test('parse one near should be 1.000000000000000000000000', () => {
     const oneNear = BigInt('1000000000000000000000000')
-    expect(parseNear(oneNear)).toBe('1.0')
+    expect(parseNear(oneNear)).toBe('1.000000000000000000000000')
   })
 
-  test('parse 424242424242424242424242424242n should be 42.424242424242424242424242', () => {
+  test('parse 42424242424242424242424242n should be 42.424242424242424242424242', () => {
     const near = BigInt('42424242424242424242424242')
     expect(parseNear(near)).toBe('42.424242424242424242424242')
+  })
+
+  test('parse 42000000000000000000000042n should be 42.000000000000000000000042', () => {
+    const near = BigInt('42000000000000000000000042')
+    expect(parseNear(near)).toBe('42.000000000000000000000042')
   })
 })
