@@ -9,7 +9,7 @@ This is a [Next.js 13](https://nextjs.org/) project using new [App Route](https:
 
 ## Features
 
-- New `/app` dir,
+- New `/app` dir
 - Interaction with Aurora blockchain using **ConnectKit** and **Wagmi**
 - Interaction with Near blockchain using **Near Wallet Selector** and **Near JavaScript API**
 - Query Aurora Explorer data using **Apollo GraphQL**
