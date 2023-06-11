@@ -26,11 +26,10 @@ This is a [Next.js 13](https://nextjs.org/) project using new [App Route](https:
 
 ## Known Issues
 
-A list of things not working right now:
-
 1. Hardcoded username(`johndoe`) and password(`abcd1234`)
 1. Hardcoded user information
-1. GitHub authentication
+1. GitHub authentication not working
+1. `/sign-in`, `/privacy` and `/terms` pages are not implemented
 
 ## Running Locally
 
@@ -77,6 +76,8 @@ A list of things not working right now:
    ```
 
 ## Deploy on Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Garfield550/qstn-dct2&project-name=qstn-dct2&repository-name=qstn-dct2)
 
 The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 

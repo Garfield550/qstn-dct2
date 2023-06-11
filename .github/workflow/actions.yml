@@ -1,0 +1,48 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Build and Test
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+env:
+  NEXT_PUBLIC_CHAIN_NETWORK: testnet
+  NEXT_PUBLIC_NFT_CONTRACT_ADDRESS: 0x1875fcC416a92e04Ee23d2077203B02f3a51D0C0
+  NEXT_PUBLIC_AURORA_EXPLORER_GQL_URL: https://explorer.testnet.aurora.dev/graphql
+  NEXT_PUBLIC_NEAR_CONTRACT_ID: guest-book.testnet
+  NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
+  NEXT_PUBLIC_INFURA_API_KEY: ${{secrets.NEXT_PUBLIC_INFURA_API_KEY}}
+  NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{secrets.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint codes
+        run: pnpm lint
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build Next.js app
+        run: pnpm build
