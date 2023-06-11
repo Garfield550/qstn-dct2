@@ -1,13 +1,14 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Github } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Icons } from '@/components/icons'
+import { Spinner } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -110,9 +111,7 @@ export function UserAuthForm({
             />
           </div>
           <Button type="submit" disabled={isLoading}>
-            {isLoading && (
-              <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-            )}
+            {isLoading && <Spinner className="mr-2" />}
             Sign In
           </Button>
         </div>
@@ -129,11 +128,11 @@ export function UserAuthForm({
       </div>
       <Button variant="outline" type="button" disabled={isLoading}>
         {isLoading ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          <Spinner className="mr-2" />
         ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
+          <Github className="mr-2 h-4 w-4" />
         )}{' '}
-        Github
+        GitHub
       </Button>
     </div>
   )

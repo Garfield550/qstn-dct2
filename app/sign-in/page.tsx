@@ -1,8 +1,10 @@
 import { type Metadata } from 'next'
 import Link from 'next/link'
+import React from 'react'
 
 import { Card, CardContent } from '@/components/ui/card'
 
+import { UserAuthFormSkeleton } from './components/skeletons/user-auth-form'
 import { UserAuthForm } from './components/user-auth-form'
 
 export const metadata: Metadata = {
@@ -24,7 +26,9 @@ export default function SignInPage() {
                 Enter your username and password to continue
               </p>
             </div>
-            <UserAuthForm />
+            <React.Suspense fallback={<UserAuthFormSkeleton />}>
+              <UserAuthForm />
+            </React.Suspense>
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{' '}
               <Link

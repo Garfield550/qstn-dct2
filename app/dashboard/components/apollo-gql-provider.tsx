@@ -6,12 +6,21 @@ import {
   HttpLink,
   SuspenseCache,
 } from '@apollo/client'
+import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev'
 import {
   ApolloNextAppProvider,
   NextSSRInMemoryCache,
   SSRMultipartLink,
 } from '@apollo/experimental-nextjs-app-support/ssr'
 import React from 'react'
+
+import { isDevelopment } from '@/env'
+
+if (isDevelopment) {
+  // Adds messages only in a dev environment
+  loadDevMessages()
+  loadErrorMessages()
+}
 
 /**
  * Create a client
