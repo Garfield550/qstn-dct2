@@ -4,7 +4,9 @@ import { aurora, auroraTestnet } from '@wagmi/chains'
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 import { useTheme } from 'next-themes'
 import React from 'react'
-import { createConfig, WagmiConfig } from 'wagmi'
+import { configureChains, createConfig, WagmiConfig } from 'wagmi'
+import { infuraProvider } from 'wagmi/providers/infura'
+import { publicProvider } from 'wagmi/providers/public'
 
 import { isDevelopment } from '@/env'
 import {
@@ -13,19 +15,25 @@ import {
   getWalletConnectProjectId,
 } from '@/lib/chain'
 
-const infuraId = getInfuraApiKey()
+const infuraKey = getInfuraApiKey()
 const walletConnectProjectId = getWalletConnectProjectId()
 
 const network = getNetworkType()
 const chain = network === 'mainnet' ? aurora : auroraTestnet
 const initialChainId = chain.id
 
+const { chains, publicClient } = configureChains(
+  [chain],
+  [infuraProvider({ apiKey: infuraKey }), publicProvider()],
+  { pollingInterval: 10_000 }
+)
+
 const config = createConfig(
   getDefaultConfig({
     appName: 'QSTN DCT2',
-    chains: [chain],
+    chains,
+    publicClient,
     walletConnectProjectId,
-    infuraId,
   })
 )
 
