@@ -1,5 +1,10 @@
 # QSTN Developer Code Test 2
 
+![GitHub Actions](https://img.shields.io/github/actions/workflow/status/Garfield550/qstn-dct2/actions.yml?logo=github&style=for-the-badge)
+![Vercel Deployment](https://img.shields.io/github/deployments/Garfield550/qstn-dct2/production?label=vercel&logo=vercel&style=for-the-badge)
+![Version](https://img.shields.io/github/package-json/v/Garfield550/qstn-dct2?style=for-the-badge)
+![License](https://img.shields.io/github/license/Garfield550/qstn-dct2?style=for-the-badge)
+
 This is a [Next.js 13](https://nextjs.org/) project using new [App Route](https://nextjs.org/docs/app/building-your-application/routing) feature.
 
 ## Features
