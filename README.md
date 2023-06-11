@@ -48,7 +48,7 @@ A list of things not working right now:
 
    > **Note**
    >
-   > **You can set `NEXT_PUBLIC_NFT_CONTRACT_ADDRESS` to `0x1875fcC416a92e04Ee23d2077203B02f3a51D0C0` and `NEXT_PUBLIC_NEAR_CONTRACT_ID` to `guest-book.testnet`**
+   > You can set `NEXT_PUBLIC_NFT_CONTRACT_ADDRESS` to `0x1875fcC416a92e04Ee23d2077203B02f3a51D0C0` and `NEXT_PUBLIC_NEAR_CONTRACT_ID` to `guest-book.testnet`
 
 1. Start the development server:
 
