@@ -3,6 +3,8 @@
     "streetsidesoftware.code-spell-checker",
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "zixuanchen.vitest-explorer",
+    "apollographql.vscode-apollo",
+    "bradlc.vscode-tailwindcss"
   ]
 }

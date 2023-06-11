@@ -1,3 +1,5 @@
+import { isAddress } from 'viem'
+
 import { environment, type NetworkType } from '@/env/client'
 
 export function getInfuraApiKey(): string {
@@ -25,6 +27,8 @@ const truncateRegex = /^(0x[\dA-Za-z]{4})[\dA-Za-z]+([\dA-Za-z]{4})$/
 
 export function truncateEthAddress(address?: string, separator = '••••') {
   if (!address) return ''
+  const isValid = isAddress(address)
+  if (!isValid) return ''
   const match = address.match(truncateRegex)
   if (!match) return address
   return `${match[1]}${separator}${match[2]}`

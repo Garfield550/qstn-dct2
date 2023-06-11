@@ -9,7 +9,7 @@ function defineNextConfig(config) {
 
 export default defineNextConfig({
   reactStrictMode: true,
-  output: 'standalone',
+  // output: 'standalone', // standalone for Docker deployment
   webpack: (config, { isServer }) => {
     if (!isServer) {
       // Fix @walletconnect/legacy-client build error

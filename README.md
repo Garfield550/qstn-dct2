@@ -56,6 +56,26 @@ A list of things not working right now:
    pnpm dev
    ```
 
+## Running Tests
+
+1. Install dependencies using pnpm:
+
+   ```sh
+   pnpm install
+   ```
+
+1. Copy `example.env` to `.env.test.local` and update the variables.
+
+   ```sh
+   cp example.env .env.test
+   ```
+
+1. Run tests:
+
+   ```sh
+   pnpm test
+   ```
+
 ## Deploy on Vercel
 
 The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://vercel.com/new).
