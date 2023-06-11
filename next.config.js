@@ -9,9 +9,6 @@ function defineNextConfig(config) {
 
 export default defineNextConfig({
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
   output: 'standalone',
   webpack: (config, { isServer }) => {
     if (!isServer) {

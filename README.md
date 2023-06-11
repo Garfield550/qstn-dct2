@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QSTN Developer Code Test 2
 
-## Getting Started
+This is a [Next.js 13](https://nextjs.org/) project using new [App Route](https://nextjs.org/docs/app/building-your-application/routing) feature.
 
-First, run the development server:
+## Features
 
-```bash
-pnpm dev
-```
+- New `/app` dir,
+- Interaction with Aurora blockchain using **ConnectKit** and **Wagmi**
+- Interaction with Near blockchain using **Near Wallet Selector** and **Near JavaScript API**
+- Query Aurora Explorer data using **Apollo GraphQL**
+- Server and Client Components
+- API Routes and Middleware
+- Authentication using **NextAuth.js**
+- UI Components built using **shadcn/ui** and **Radix UI**
+- Styled using **Tailwind CSS**
+- Validations using **Zod**
+- Written in **TypeScript**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Backlogs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [ ] Reduce first load JS size for /dashboard page
+- [ ] Performance optimizations
+- [ ] Add more tests
+- [ ] Interaction with [TestERC721](https://explorer.testnet.aurora.dev/address/0x1875fcC416a92e04Ee23d2077203B02f3a51D0C0/contracts#address-tabs) contract
+- [ ] Interaction with Near Guest Book contract
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Known Issues
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+A list of things not working right now:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Hardcoded username(`johndoe`) and password(`abcd1234`)
+1. Hardcoded user information
+1. GitHub authentication
 
-## Learn More
+## Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+1. Install dependencies using pnpm:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```sh
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Copy `example.env` to `.env.local` and update the variables.
+
+   ```sh
+   cp example.env .env.local
+   ```
+
+   > **Note**
+   >
+   > **You can set `NEXT_PUBLIC_NFT_CONTRACT_ADDRESS` to `0x1875fcC416a92e04Ee23d2077203B02f3a51D0C0` and `NEXT_PUBLIC_NEAR_CONTRACT_ID` to `guest-book.testnet`**
+
+1. Start the development server:
+
+   ```sh
+   pnpm dev
+   ```
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## License
+
+Licensed under the [MIT license](LICENSE).
