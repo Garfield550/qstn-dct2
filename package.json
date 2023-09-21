@@ -37,7 +37,7 @@
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "connectkit": "^1.4.0",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "lucide-react": "^0.241.0",
     "near-api-js": "^2.1.4",
     "next": "13.4.3",
